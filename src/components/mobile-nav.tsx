@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import {
   Sheet,
@@ -12,15 +13,12 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
-import { NavItems } from "@/data";
+import { NavItem } from "@/config/nav";
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false);
-  const pathname = usePathname();
 
-  const handledClose = () => setOpen(false);
+  const pathname = usePathname();
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -35,7 +33,7 @@ export function MobileNav() {
             <Link
               href="/"
               className="text-2xl font-bold"
-              onClick={handledClose}
+              onClick={() => setOpen(false)}
             >
               Logo
             </Link>
@@ -45,22 +43,20 @@ export function MobileNav() {
 
         <div className="container">
           <div className="grid gap-0.5">
-            {NavItems.map((item, index) => {
-              const isActive = pathname.startsWith(item.href);
+            {NavItem.map((item, index) => {
+              const isActive = () =>
+                pathname.startsWith(`/${item.title.toLowerCase()}`);
 
               return (
-                <Link
+                <Button
                   key={index}
-                  href={item.href}
-                  className={cn(
-                    buttonVariants({ variant: isActive ? "none" : "ghost" }),
-                    "flex items-center justify-start",
-                    isActive && "bg-accent"
-                  )}
-                  onClick={handledClose}
+                  asChild
+                  variant={isActive() ? "active" : "ghost"}
+                  className="flex items-center justify-start"
+                  onClick={() => setOpen(false)}
                 >
-                  {item.title}
-                </Link>
+                  <Link href={item.href}>{item.title}</Link>
+                </Button>
               );
             })}
           </div>

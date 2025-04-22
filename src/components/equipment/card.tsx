@@ -13,7 +13,7 @@ export function EquipmentCard({ title, status, obtain }: EquipmentCardProps) {
     <>
       <div className="flex flex-col justify-start p-4 border rounded-md bg-background">
         <span className="flex">{title}</span>
-        <Separator className="mt-2 mb-3" />
+        <Separator className="mt-2 mb-4" />
         <section className="grid xl:grid-cols-[200px_minmax(0,1fr)] gap-4">
           {/* Image */}
           <div className="flex justify-center">

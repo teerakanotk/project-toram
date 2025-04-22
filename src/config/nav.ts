@@ -3,7 +3,7 @@ import * as Types from "@/types";
 export const NavItem: Types.NavItemProps[] = [
   {
     title: "Guide",
-    href: "/guide",
+    href: "/guide/1",
   },
   {
     title: "Map",
@@ -19,103 +19,38 @@ export const NavItem: Types.NavItemProps[] = [
   },
 ];
 
-// Equipment items list
-export const equipmentItem: Types.EquipmentProps = {
-  "one-handed-sword": [
-    "Bronze Short Sword",
-    "Iron Rapier",
-    "Steel Saber",
-    "Knight's Blade",
-    "Shadow Fang",
-    "Gladiator's Edge",
-    "Swift Cutter",
-    "Duelist's Razor",
-    "Silver Sting",
-    "Darkfang Saber",
-    "Holy Sword Elora",
-    "Ashen Edge",
-    "Flamebrand",
-    "Icepiercer",
-    "Storm Fang",
-    "Twilight Saber",
-    "Viper Fang",
-    "Blood Reaver",
-    "Silent Slash",
-    "Arcblade",
-    "Obsidian Dagger",
-    "Lionheart Saber",
-    "Crimson Edge",
-    "Azure Katana",
-    "Sunflare Blade",
-    "Moonveil Saber",
-    "Gravepiercer",
-    "Phantom Fang",
-    "Starlight Edge",
-    "Thunderbite",
-    "Bonecarver",
-    "Enchanted Sabre",
-    "Frostbite Dagger",
-    "Hellfang",
-    "Warden's Blade",
-    "Dragonfang",
-    "Venom Edge",
-    "Ironclaw",
-    "Cerulean Saber",
-    "Rune Sabre",
-    "Warrior's Thorn",
-    "Steel Thorn",
-    "Firefang",
-    "Echo Blade",
-    "Silent Echo",
-    "Mythril Cutter",
-    "Rogue's Kiss",
-    "Soulpiercer",
-    "Templar Saber",
-    "Whispering Edge",
+// Define all sidebar items in a centralized structure
+const sidebarItem: { [key: string]: Types.NavItemProps[] } = {
+  guide: [{ title: "Guide", href: "/guide/1" }],
+  map: [{ title: "Map", href: "/map" }],
+  item: [{ title: "Item", href: "/item" }],
+  equipment: [
+    { title: "One-Handed Sword", href: "/equipment/one-handed-sword" },
+    { title: "Two-Handed Sword", href: "/equipment/two-handed-sword" },
+    { title: "Bow", href: "/equipment/bow" },
+    { title: "Bowgun", href: "/equipment/bowgun" },
+    { title: "Knuckle", href: "/equipment/knuckle" },
+    { title: "Magic Devices", href: "/equipment/magic-devices" },
+    { title: "Staff", href: "/equipment/staff" },
+    { title: "Halberd", href: "/equipment/halberd" },
+    { title: "Katana", href: "/equipment/katana" },
+    { title: "Dagger", href: "/equipment/dagger" },
+    { title: "Arrow", href: "/equipment/arrow" },
+    { title: "Shield", href: "/equipment/shield" },
+    { title: "Ninjutsu Scroll", href: "/equipment/ninjutsu-scroll" },
+    { title: "Armor", href: "/equipment/armor" },
+    { title: "Additional", href: "/equipment/additional" },
+    { title: "Special", href: "/equipment/special" },
   ],
-  "two-handed-sword": ["Item 2"],
-  bow: ["Item 3"],
-  bowgun: ["Item 4"],
-  knuckle: ["Item 5"],
-  "magic-devices": ["Item 6"],
-  staff: ["Item 7"],
-  halberd: ["Item 8"],
-  katana: ["Item 9"],
-  dagger: ["Dagger"],
-  arrow: ["Arrow"],
-  shield: ["Shield"],
-  "ninjutsu-scroll": ["Ninjutsu Scroll"],
-  armor: ["Armor"],
-  additional: ["Additional"],
-  special: ["Special"],
 };
 
-export const equipmentLabel: Record<string, string> = {
-  "one-handed-sword": "One-Handed Sword",
-  "two-handed-sword": "Two-Handed Sword",
-  bow: "Bow",
-  bowgun: "Bowgun",
-  knuckle: "Knuckle",
-  "magic-devices": "Magic Devices",
-  staff: "Staff",
-  halberd: "Halberd",
-  katana: "Katana",
-  dagger: "Dagger",
-  arrow: "Arrow",
-  shield: "Shield",
-  "ninjutsu-scroll": "Ninjutsu Scroll",
-  armor: "Armor",
-  additional: "Additional",
-  special: "Special",
-};
+// Individual named exports
+export const guideItem = sidebarItem.guide;
+export const mapItem = sidebarItem.map;
+export const itemItem = sidebarItem.item;
+export const equipmentItem = sidebarItem.equipment;
 
-export const equipmentItemTest: {
-  [key: string]: {
-    title: string;
-    status: string;
-    obtain: string;
-  }[];
-} = {
+export const EquipmentItem: Types.EquipmentItemTestProps = {
   "one-handed-sword": [
     {
       title: "Iron Saber",
@@ -270,6 +205,231 @@ export const equipmentItemTest: {
       title: "Moonlight Bow",
       status: "Bonus crit at night",
       obtain: "Hidden chest in Night Forest",
+    },
+    {
+      title: "Ashen Bow",
+      status: "Burn chance on hit",
+      obtain: "Crafted from Ember Shards",
+    },
+    {
+      title: "Silent Sting",
+      status: "No aggro when attacking",
+      obtain: "Stealth Trial Reward",
+    },
+    {
+      title: "Spiritwood Bow",
+      status: "Increases mana regen",
+      obtain: "Crafted with Spiritwood",
+    },
+    {
+      title: "Ranger’s Grasp",
+      status: "Faster draw speed",
+      obtain: "Hunter's Guild Rank B Reward",
+    },
+    {
+      title: "Frosttip Bow",
+      status: "Slows enemies",
+      obtain: "Drop: Ice Golem",
+    },
+    {
+      title: "Widowmaker",
+      status: "Critical on low HP targets",
+      obtain: "Arena Shop",
+    },
+    {
+      title: "Bloodthorn",
+      status: "Life steal on hit",
+      obtain: "Vampire Hunter Quest",
+    },
+    {
+      title: "Skyfall Bow",
+      status: "Aerial bonus damage",
+      obtain: "Drop: Sky Harpy",
+    },
+    {
+      title: "Wyrmfang Bow",
+      status: "Increased beast damage",
+      obtain: "Dragon Cave Expedition",
+    },
+    {
+      title: "Phantom Shot",
+      status: "Shoots spectral arrows",
+      obtain: "Phantom Tower Floor 10",
+    },
+    {
+      title: "Solarflare Bow",
+      status: "Burn enemies over time",
+      obtain: "Trial of Light",
+    },
+    {
+      title: "Shadowbite",
+      status: "Inflicts blind",
+      obtain: "Assassin's Hideout Chest",
+    },
+    {
+      title: "Ironwood Longbow",
+      status: "Extra range",
+      obtain: "Crafted: Ironwood + Silk String",
+    },
+    {
+      title: "Twilight Archer",
+      status: "Bonus damage at dusk",
+      obtain: "Drop: Twilight Wolf",
+    },
+    {
+      title: "Venomroot Bow",
+      status: "Poison damage over time",
+      obtain: "Crafted with Venomroot",
+    },
+    {
+      title: "Crystal Curve",
+      status: "Pierces two enemies",
+      obtain: "Crystal Mines Lv2",
+    },
+    {
+      title: "Darkfletch",
+      status: "Increased stealth attacks",
+      obtain: "Night Market Exclusive",
+    },
+    {
+      title: "Goldtail Bow",
+      status: "Increases gold drop",
+      obtain: "Festive Event Reward",
+    },
+    {
+      title: "Thunderwing",
+      status: "Chance to stun",
+      obtain: "Drop: Thunder Roc",
+    },
+    {
+      title: "Jade Archer",
+      status: "Grants poison immunity",
+      obtain: "Jade Temple Questline",
+    },
+    {
+      title: "Wolffang Bow",
+      status: "Attack speed boost",
+      obtain: "Alpha Wolf Boss Drop",
+    },
+    {
+      title: "Obsidian Recurve",
+      status: "Armor penetration",
+      obtain: "Blackstone Vault",
+    },
+    {
+      title: "Glass Arrow Bow",
+      status: "Fragile but powerful",
+      obtain: "Glass Desert Dungeon",
+    },
+    {
+      title: "Cerulean Arc",
+      status: "Water damage bonus",
+      obtain: "Drop: Aqua Wyrm",
+    },
+    {
+      title: "Infernal Bow",
+      status: "Fire arrows on crit",
+      obtain: "Hellgate Fortress",
+    },
+    {
+      title: "Whisperwind",
+      status: "Silent attacks",
+      obtain: "Stealth Trial Advanced",
+    },
+    {
+      title: "Runebound Bow",
+      status: "Improves magic power",
+      obtain: "Enchanter’s Tower",
+    },
+    {
+      title: "Eagle Eye",
+      status: "High accuracy",
+      obtain: "Quest: Eyes of the Hunter",
+    },
+    {
+      title: "Bleak Hollow Bow",
+      status: "Fear debuff on enemies",
+      obtain: "Haunted Forest Drop",
+    },
+    {
+      title: "Featherstring",
+      status: "Faster movement while aiming",
+      obtain: "Raptor Nesting Grounds",
+    },
+    {
+      title: "Pulse Bow",
+      status: "Shoots energy bolts",
+      obtain: "Arcane Reactor Core",
+    },
+    {
+      title: "Gravedigger",
+      status: "Damage undead",
+      obtain: "Drop: Lich King",
+    },
+    {
+      title: "Shattershot",
+      status: "Causes armor break",
+      obtain: "Trial of Blades",
+    },
+    {
+      title: "Tempest Bow",
+      status: "Storm AoE on hit",
+      obtain: "Legendary Blacksmith Forge",
+    },
+    {
+      title: "Blightthorn",
+      status: "Corrupts enemies",
+      obtain: "Forbidden Grove",
+    },
+    {
+      title: "Arcstriker",
+      status: "Static damage per second",
+      obtain: "Drop: Thunder Titan",
+    },
+    {
+      title: "Crescent Shot",
+      status: "Deals arc-shaped AoE",
+      obtain: "Moon Shrine Event",
+    },
+    {
+      title: "Lava Seeker",
+      status: "Fire immunity + burn effect",
+      obtain: "Volcano Depths Chest",
+    },
+    {
+      title: "Gilded Arrow",
+      status: "Bonus EXP per kill",
+      obtain: "Collector’s Pack",
+    },
+    {
+      title: "Bonecarver",
+      status: "Effective vs. armored foes",
+      obtain: "Drop: Bone Knight",
+    },
+    {
+      title: "Spirit Seeker",
+      status: "Deals extra to ghosts",
+      obtain: "Witch’s Tower Floor 3",
+    },
+    {
+      title: "Sunpiercer",
+      status: "Bonus in daylight",
+      obtain: "Temple of the Sun God",
+    },
+    {
+      title: "Dreamweaver",
+      status: "Causes sleep",
+      obtain: "Drop: Dream Dragon",
+    },
+    {
+      title: "Echo String",
+      status: "Reflects projectile damage",
+      obtain: "Trial of Sound",
+    },
+    {
+      title: "Frostshard Bow",
+      status: "Shatter frozen enemies",
+      obtain: "Frozen Wastes",
     },
   ],
   bowgun: [
@@ -625,7 +785,8 @@ export const equipmentItemTest: {
   ],
 };
 
-export const equipmentLabelTest: {
+// Title for sidebarNav
+export const EquipmentNavTitle: {
   [key: string]: string;
 } = {
   "one-handed-sword": "One-Handed Sword",

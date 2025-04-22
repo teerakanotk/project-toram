@@ -14,10 +14,12 @@ export function MainNav() {
       </Link>
       <nav className="flex items-center gap-4 text-md xl:gap-6">
         <Link
-          href="/guide"
+          href="/guide/1"
           className={cn(
             "transition-colors hover:text-foreground/90",
-            pathname === "/guide" ? "text-foreground" : "text-foreground/75"
+            pathname?.startsWith("/guide")
+              ? "text-foreground"
+              : "text-foreground/75"
           )}
         >
           Guide
@@ -26,7 +28,9 @@ export function MainNav() {
           href="/map"
           className={cn(
             "transition-colors hover:text-foreground/90",
-            pathname === "/map" ? "text-foreground" : "text-foreground/75"
+            pathname?.startsWith("/map")
+              ? "text-foreground"
+              : "text-foreground/75"
           )}
         >
           Map
@@ -35,7 +39,9 @@ export function MainNav() {
           href="/item"
           className={cn(
             "transition-colors hover:text-foreground/90",
-            pathname === "/item" ? "text-foreground" : "text-foreground/75"
+            pathname?.startsWith("/item")
+              ? "text-foreground"
+              : "text-foreground/75"
           )}
         >
           Item

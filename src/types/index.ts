@@ -6,3 +6,11 @@ export interface NavItemProps {
 export interface EquipmentProps {
   [type: string]: string[];
 }
+
+export interface EquipmentItemTestProps {
+  [key: string]: {
+    title: string;
+    status: string;
+    obtain: string;
+  }[];
+}

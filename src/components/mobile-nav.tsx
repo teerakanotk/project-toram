@@ -47,7 +47,7 @@ export function MobileNav() {
                   <Button
                     asChild
                     key={index}
-                    variant={isActive() ? "active" : "ghost"}
+                    variant={isActive() ? "secondary" : "ghost"}
                     className="flex items-center justify-start"
                     onClick={() => setOpen(false)}
                   >

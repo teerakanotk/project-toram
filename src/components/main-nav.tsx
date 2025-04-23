@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { MainNavItem } from "@/config/nav";
 import { cn } from "@/lib/utils";
 
 export function MainNav() {
@@ -13,50 +14,23 @@ export function MainNav() {
         <span className="hidden md:inline-block font-bold">Logo</span>
       </Link>
       <nav className="flex items-center gap-4 text-md xl:gap-6">
-        <Link
-          href="/guide/1"
-          className={cn(
-            "transition-colors hover:text-foreground/90",
-            pathname?.startsWith("/guide")
-              ? "text-foreground"
-              : "text-foreground/75"
-          )}
-        >
-          Guide
-        </Link>
-        <Link
-          href="/map"
-          className={cn(
-            "transition-colors hover:text-foreground/90",
-            pathname?.startsWith("/map")
-              ? "text-foreground"
-              : "text-foreground/75"
-          )}
-        >
-          Map
-        </Link>
-        <Link
-          href="/item"
-          className={cn(
-            "transition-colors hover:text-foreground/90",
-            pathname?.startsWith("/item")
-              ? "text-foreground"
-              : "text-foreground/75"
-          )}
-        >
-          Item
-        </Link>
-        <Link
-          href="/equipment/one-handed-sword"
-          className={cn(
-            "transition-colors hover:text-foreground/90",
-            pathname?.startsWith("/equipment")
-              ? "text-foreground"
-              : "text-foreground/75"
-          )}
-        >
-          Equipment
-        </Link>
+        {MainNavItem.map((item, index) => {
+          const isActive = () =>
+            pathname.startsWith(`/${item.title.toLowerCase()}`);
+
+          return (
+            <Link
+              key={index}
+              href={item.href}
+              className={cn(
+                "transition-colors hover:text-foreground/90",
+                isActive() ? "text-primary" : "text-foreground/65"
+              )}
+            >
+              {item.title}
+            </Link>
+          );
+        })}
       </nav>
     </div>
   );

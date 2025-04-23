@@ -3,21 +3,29 @@
 import {
   Breadcrumb,
   BreadcrumbItem,
+  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-export function EquipmentBreadcrumb() {
+interface EquipmentBreadcrumbProps {
+  title?: string;
+  page?: string;
+}
+
+export function EquipmentBreadcrumb({ title, page }: EquipmentBreadcrumbProps) {
   return (
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbPage>Docs</BreadcrumbPage>
+          <BreadcrumbLink href="/equipment/one-handed-sword">
+            {title}
+          </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage>Equipment</BreadcrumbPage>
+          <BreadcrumbPage>{page}</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>

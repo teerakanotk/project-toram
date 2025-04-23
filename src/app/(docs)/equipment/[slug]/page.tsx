@@ -1,16 +1,9 @@
 import * as React from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { EquipmentItem, EquipmentNavTitle } from "@/config/nav";
+import { equipmentItem } from "@/config/nav";
 import { EquipmentCard } from "@/components/equipment/card";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+import { EquipmentBreadcrumb } from "@/components/equipment/breadcrumb";
 
 interface EquipmentPageProps {
   params: Promise<{ slug: string }>;
@@ -21,46 +14,37 @@ export async function generateMetadata({
 }: EquipmentPageProps): Promise<Metadata> {
   // Unwrapping the Promise to access slug
   const { slug } = await params;
-  const breadcrumb = EquipmentNavTitle[slug];
+  const equipment = equipmentItem[slug];
 
   return {
-    title: breadcrumb,
+    title: equipment.title,
   };
 }
 
 export default async function EquipmentPage({ params }: EquipmentPageProps) {
   const { slug } = await params;
-  const equipmentItems = EquipmentItem[slug];
-  const breadcrumb = EquipmentNavTitle[slug];
+  const equipment = equipmentItem[slug];
 
-  if (!equipmentItems) {
+  if (!equipment) {
     return notFound();
   }
 
   return (
-    <section className="space-y-4">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/equipment">Equipment</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>{breadcrumb}</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+    <>
+      <section className="space-y-4">
+        <EquipmentBreadcrumb title="Equipment" page={equipment?.title} />
 
-      <div className="grid gap-4 lg:grid-cols-2">
-        {equipmentItems.map((item, index) => (
-          <EquipmentCard
-            key={index}
-            title={item.title}
-            status={item.status}
-            obtain={item.obtain}
-          />
-        ))}
-      </div>
-    </section>
+        <div className="grid gap-4 lg:grid-cols-2">
+          {equipment?.item.map((item, index) => (
+            <EquipmentCard
+              key={index}
+              name={item.name}
+              status={item.status}
+              obtain={item.obtain}
+            />
+          ))}
+        </div>
+      </section>
+    </>
   );
 }

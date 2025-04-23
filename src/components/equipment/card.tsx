@@ -3,16 +3,16 @@
 import { Separator } from "@/components/ui/separator";
 
 interface EquipmentCardProps {
-  title: string;
+  name: string;
   status: string;
   obtain: string;
 }
 
-export function EquipmentCard({ title, status, obtain }: EquipmentCardProps) {
+export function EquipmentCard({ name, status, obtain }: EquipmentCardProps) {
   return (
     <>
       <div className="flex flex-col justify-start p-4 border rounded-md bg-background">
-        <span className="flex">{title}</span>
+        <span className="flex">{name}</span>
         <Separator className="mt-2 mb-4" />
         <section className="grid xl:grid-cols-[200px_minmax(0,1fr)] gap-4">
           {/* Image */}

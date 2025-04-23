@@ -13,7 +13,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Link from "next/link";
-import { NavItem } from "@/config/nav";
+import { MobileNavItem } from "@/config/nav";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 
 export function MobileNav() {
@@ -39,7 +39,7 @@ export function MobileNav() {
 
           <div className="container">
             <div className="grid gap-0.5">
-              {NavItem.map((item, index) => {
+              {MobileNavItem.map((item, index) => {
                 const isActive = () =>
                   pathname.startsWith(`/${item.title.toLowerCase()}`);
 

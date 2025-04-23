@@ -5,13 +5,13 @@ import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { NavItemProps } from "@/types";
-import { equipmentItem, guideItem, itemItem, mapItem } from "@/config/nav";
+import { SidebarNavItem } from "@/config/nav";
 
-const category: { [category: string]: NavItemProps[] } = {
-  guide: guideItem,
-  map: mapItem,
-  item: itemItem,
-  equipment: equipmentItem,
+const category: { [key: string]: NavItemProps[] } = {
+  guide: SidebarNavItem.guide,
+  map: SidebarNavItem.map,
+  item: SidebarNavItem.item,
+  equipment: SidebarNavItem.equipment,
 };
 
 export function AppSidebar() {

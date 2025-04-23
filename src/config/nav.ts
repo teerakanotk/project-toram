@@ -47,13 +47,8 @@ export const SidebarNavItem: { [key: string]: Types.NavItemProps[] } = {
 };
 
 // Define the item structure
-interface itemProps {
-  name: string;
-  status: string;
-  obtain: string;
-}
 
-const oneHandedSwordItem: itemProps[] = [
+const oneHandedSwordItem: Types.itemProps[] = [
   {
     name: "Iron Saber",
     status: "Basic sword with reliable stats",
@@ -156,7 +151,7 @@ const oneHandedSwordItem: itemProps[] = [
   },
 ];
 
-const twoHandedSwordItem: itemProps[] = [
+const twoHandedSwordItem: Types.itemProps[] = [
   {
     name: "Claymore",
     status: "Slow but high-damage",
@@ -184,7 +179,7 @@ const twoHandedSwordItem: itemProps[] = [
   },
 ];
 
-const bowItem: itemProps[] = [
+const bowItem: Types.itemProps[] = [
   {
     name: "Hunting Bow",
     status: "Reliable for early game",
@@ -437,7 +432,7 @@ const bowItem: itemProps[] = [
   },
 ];
 
-const bowgunItem: itemProps[] = [
+const bowgunItem: Types.itemProps[] = [
   {
     name: "Crossfire Mk.I",
     status: "Rapid-fire bowgun",
@@ -465,7 +460,7 @@ const bowgunItem: itemProps[] = [
   },
 ];
 
-const knuckleItem: itemProps[] = [
+const knuckleItem: Types.itemProps[] = [
   {
     name: "Leather Knuckles",
     status: "Beginner martial weapon",
@@ -493,7 +488,7 @@ const knuckleItem: itemProps[] = [
   },
 ];
 
-const magicDevicesItem: itemProps[] = [
+const magicDevicesItem: Types.itemProps[] = [
   {
     name: "Elemental Sphere",
     status: "Adapts to nearby elements",
@@ -521,7 +516,7 @@ const magicDevicesItem: itemProps[] = [
   },
 ];
 
-const staffItem: itemProps[] = [
+const staffItem: Types.itemProps[] = [
   {
     name: "Beginner Staff",
     status: "Standard magic boost",
@@ -549,7 +544,7 @@ const staffItem: itemProps[] = [
   },
 ];
 
-const halberdItem: itemProps[] = [
+const halberdItem: Types.itemProps[] = [
   {
     name: "Poleaxe",
     status: "Good for long reach",
@@ -577,7 +572,7 @@ const halberdItem: itemProps[] = [
   },
 ];
 
-const katanaItem: itemProps[] = [
+const katanaItem: Types.itemProps[] = [
   {
     name: "Practice Katana",
     status: "Light and fast",
@@ -605,7 +600,7 @@ const katanaItem: itemProps[] = [
   },
 ];
 
-const daggerItem: itemProps[] = [
+const daggerItem: Types.itemProps[] = [
   {
     name: "Steel Dagger",
     status: "Fast stab weapon",
@@ -633,7 +628,7 @@ const daggerItem: itemProps[] = [
   },
 ];
 
-const arrowItem: itemProps[] = [
+const arrowItem: Types.itemProps[] = [
   {
     name: "Iron Arrow",
     status: "Basic projectile",
@@ -661,7 +656,7 @@ const arrowItem: itemProps[] = [
   },
 ];
 
-const shieldItem: itemProps[] = [
+const shieldItem: Types.itemProps[] = [
   {
     name: "Wooden Shield",
     status: "Basic defense",
@@ -689,7 +684,7 @@ const shieldItem: itemProps[] = [
   },
 ];
 
-const ninjutsuScrollItem: itemProps[] = [
+const ninjutsuScrollItem: Types.itemProps[] = [
   {
     name: "Scroll of Flames",
     status: "Creates fire trap",
@@ -717,7 +712,7 @@ const ninjutsuScrollItem: itemProps[] = [
   },
 ];
 
-const armorItem: itemProps[] = [
+const armorItem: Types.itemProps[] = [
   {
     name: "Traveler's Tunic",
     status: "Basic starter gear",
@@ -745,7 +740,7 @@ const armorItem: itemProps[] = [
   },
 ];
 
-const additionalItem: itemProps[] = [
+const additionalItem: Types.itemProps[] = [
   {
     name: "Feather Cape",
     status: "Boosts movement speed",
@@ -773,7 +768,7 @@ const additionalItem: itemProps[] = [
   },
 ];
 
-const specialItem: itemProps[] = [
+const specialItem: Types.itemProps[] = [
   {
     name: "Hero's Emblem",
     status: "Raises all stats",
@@ -804,7 +799,7 @@ const specialItem: itemProps[] = [
 // Export all item for EquipmentPage
 export const equipmentItem: Record<
   string,
-  { title: string; item: itemProps[] }
+  { title: string; item: Types.itemProps[] }
 > = {
   "one-handed-sword": {
     title: "One-Handed Sword",

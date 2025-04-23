@@ -24,7 +24,13 @@ export function MobileNav() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Menu className="cursor-pointer md:hidden" />
+        <Button
+          variant="outline"
+          size="icon"
+          className="cursor-pointer md:hidden"
+        >
+          <Menu />
+        </Button>
       </SheetTrigger>
       <ScrollArea>
         <SheetContent side="left" className="flex gap-0">

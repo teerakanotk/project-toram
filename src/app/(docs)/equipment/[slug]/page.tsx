@@ -1,9 +1,10 @@
 import * as React from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { equipmentItem } from "@/config/nav";
 import { EquipmentCard } from "@/components/equipment/card";
 import { EquipmentBreadcrumb } from "@/components/equipment/breadcrumb";
+
+import { equipmentItem } from "@/config/equipment";
 
 interface EquipmentPageProps {
   params: Promise<{ slug: string }>;
@@ -32,17 +33,20 @@ export default async function EquipmentPage({ params }: EquipmentPageProps) {
   return (
     <>
       <section className="space-y-4">
-        <EquipmentBreadcrumb title="Equipment" page={equipment?.title} />
+        <EquipmentBreadcrumb page={equipment?.title} />
 
         <div className="grid gap-4 lg:grid-cols-2">
-          {equipment?.item.map((item, index) => (
-            <EquipmentCard
-              key={index}
-              name={item.name}
-              status={item.status}
-              obtain={item.obtain}
-            />
-          ))}
+          {equipment?.item.map((item, index) => {
+            return (
+              <EquipmentCard
+                key={index}
+                name={item.name}
+                status={item.status}
+                obtain={item.obtain}
+                image={item.image}
+              />
+            );
+          })}
         </div>
       </section>
     </>

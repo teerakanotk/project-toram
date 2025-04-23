@@ -4,14 +4,14 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
 import Link from "next/link";
-import { NavItemProps } from "@/types";
-import { SidebarNavItem } from "@/config/nav";
+import { navItemProps } from "@/types";
+import { sidebarNavItem } from "@/config/nav";
 
-const category: { [key: string]: NavItemProps[] } = {
-  guide: SidebarNavItem.guide,
-  map: SidebarNavItem.map,
-  item: SidebarNavItem.item,
-  equipment: SidebarNavItem.equipment,
+const category: { [key: string]: navItemProps[] } = {
+  guide: sidebarNavItem.guide,
+  map: sidebarNavItem.map,
+  item: sidebarNavItem.item,
+  equipment: sidebarNavItem.equipment,
 };
 
 export function AppSidebar() {
@@ -30,6 +30,7 @@ export function AppSidebar() {
                 asChild
                 key={index}
                 variant={pathname === item.href ? "secondary" : "ghost"}
+                className="shadow-none"
               >
                 <Link
                   href={item.href}

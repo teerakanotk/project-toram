@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { equipmentItem, equipmentLabel } from "@/config/nav";
+import { equipmentItem, EquipmentNavTitle } from "@/config/nav";
 
 export function EquipmentToggleGroup() {
   const pathname = usePathname();
@@ -22,7 +22,7 @@ export function EquipmentToggleGroup() {
               key={index}
               className="border"
             >
-              <Link href={`/equipment/${item}`}>{equipmentLabel[item]}</Link>
+              <Link href={`/equipment/${item}`}>{EquipmentNavTitle[item]}</Link>
             </Button>
           );
         })}
